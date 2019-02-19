@@ -1,26 +1,26 @@
 ## Download and Install Java
 
-sudo add-apt-repository ppa:webupd8team/java
+  sudo add-apt-repository ppa:webupd8team/java
 
-sudo apt update
+  sudo apt update
 
-sudo apt install oracle-java8-set-default
+  sudo apt install oracle-java8-set-default
 
-## Download and Install zookeeper
+### Download and Install zookeeper
 
-wget https://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz
+  wget https://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz
 
-tar -xzf zookeeper-3.4.12.tar.gz
+  tar -xzf zookeeper-3.4.12.tar.gz
 
-cd zookeeper-3.4.12/conf
+  cd zookeeper-3.4.12/conf
 
 ### update zookeeper configurations
 
 The zoo.cfg file keeps configuration for ZooKeeper, i.e. on which port the ZooKeeper instance will listen, data directory, etc.
 
-mv zoo_sample.cfg zoo.cfg
+  mv zoo_sample.cfg zoo.cfg
 
-nano zoo.cfg
+  nano zoo.cfg
 
 What is the client port?  The default listen port is 2181. You can change this port by changing clientPort.
 
@@ -30,42 +30,42 @@ exit from nano
 
 ### create a new data directory in zookeeper folder
 
-mkdir data
+  mkdir data
 
 ### change the data directory
 
-cd conf
+  cd conf
 
-sudo nano zoo.cfg
+  sudo nano zoo.cfg
 
-replace with "dataDir=/data"
+  replace with "dataDir=/data"
 
-save and exit nano
+  save and exit nano
 
 ### Start zookeeper
 
-cd ../bin
+  cd ../bin
 
-sudo ./zkServer.sh start
+  sudo ./zkServer.sh start
 
 ### Stop zookeeper
 
-sudo ./zkServer.sh stop
+  sudo ./zkServer.sh stop
 
 ### Install Kafka
 
-cd
+  cd
 
-wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz
+  wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz
 
-tar -xzf kafka_2.11-2.1.0.tgz
+  tar -xzf kafka_2.11-2.1.0.tgz
 
 
 ### Update configurations
 
-cd kafka_2.11-2.1.0/config
+  cd kafka_2.11-2.1.0/config
 
-sudo nano server.properties
+  sudo nano server.properties
 
 ### Tell kafka to listen on default port 9092 
 
@@ -85,7 +85,7 @@ zookeeper.connect=localhost:2181
 
 go to kafka home directory
 
-sudo ./bin/kafka-server-start.sh config/server.properties
+  sudo ./bin/kafka-server-start.sh config/server.properties
 
 
 
