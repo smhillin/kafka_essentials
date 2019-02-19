@@ -38,7 +38,7 @@ exit from nano
 
   sudo nano zoo.cfg
 
-  replace with "dataDir=/data"
+  replace with "dataDir=/zookeeper-3.4.12/data"
 
   save and exit nano
 
