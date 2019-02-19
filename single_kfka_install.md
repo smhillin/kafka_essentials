@@ -6,7 +6,7 @@
 
   sudo apt install oracle-java8-set-default
 
-### Download and Install zookeeper
+## Download and Install zookeeper
 
   wget https://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz
 
@@ -52,7 +52,7 @@ exit from nano
 
   sudo ./zkServer.sh stop
 
-### Install Kafka
+## Download and Install Kafka
 
   cd
 
