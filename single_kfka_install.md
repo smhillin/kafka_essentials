@@ -73,7 +73,7 @@ remove the commment from "listeners=PLAINTEXT://:9092"
 
 ### Update log directory from temp
 
-Change log.dirs from "/tmp/kafka-logs" to "/kafka_2.11-2.1.0/kafka-logs"
+Change log.dirs from "/tmp/kafka-logs" to "/kafka_2.11-2.1.0/logs"
 
 ### Check zoopkeeper port and url.  
 
@@ -87,5 +87,22 @@ go to kafka home directory
 
   sudo ./bin/kafka-server-start.sh config/server.properties
 
+  ctrl-z to stop
+  
 
+### Start Zookeeper and Kafka from any folder
+
+  sudo ~/zookeeper-3.4.12/bin/zkServer.sh start
+  
+  sudo ~/kafka_2.11-2.1.0/bin/kafka-server-start.sh config/server.properties
+  
+If you get an error see if kafka is running currently and if so kill the process.
+
+  ps -fA | grep ./bin/kafka-server-start.sh
+  
+  sudo -9 kill <process-id>
+  
+  
+  
+  
 
