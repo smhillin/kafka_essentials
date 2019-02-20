@@ -77,13 +77,13 @@ Create a directory called kafka and change to this directory. This will be the b
 
 ### By default, Kafka doesn't allow you to delete topics. To be able to delete topics
 
-add the following line at the end of the file:
+Add the following line at the end of the file:
 
     "delete.topic.enable = true"
 
 ### Tell kafka to listen on default port 9092 
 
-remove the comment from "listeners=PLAINTEXT://:9092"
+Remove the comment from "listeners=PLAINTEXT://:9092"
 
 ### Update log directory from temp
 
