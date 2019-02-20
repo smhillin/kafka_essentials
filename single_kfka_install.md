@@ -34,141 +34,141 @@ exit from nano
 
 ### create a new data directory in zookeeper folder
 
-  mkdir data
+    mkdir data
 
 ### change the data directory
 
-  cd conf
+    cd conf
 
-  sudo nano zoo.cfg
+    sudo nano zoo.cfg
 
-  replace with "dataDir=/zookeeper-3.4.12/data"
+    replace with "dataDir=/zookeeper-3.4.12/data"
 
-  save and exit nano
+    save and exit nano
 
 ### Start zookeeper
 
-  cd ../bin
+    cd ../bin
 
-  sudo ./zkServer.sh start
+    sudo ./zkServer.sh start
 
 
 ## Download and Install Kafka
 
-  cd
-  
-  mkdir -p ~/Downloads
+    cd
 
-  wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz -O ~/Downloads/kafka.tgz
+    mkdir -p ~/Downloads
 
-  Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation.
+    wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz -O ~/Downloads/kafka.tgz
 
-  mkdir -p ~/kafka && cd ~/kafka
-  
-  sudo tar -xzf ~/Downloads/kafka.tgz --strip 1
+    Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation.
+
+    mkdir -p ~/kafka && cd ~/kafka
+
+    sudo tar -xzf ~/Downloads/kafka.tgz --strip 1
 
 
 ### Update configurations
 
-  cd ~/kafka/config 
+    cd ~/kafka/config
 
-  sudo nano server.properties
+    sudo nano server.properties
 
 ### By default, Kafka doesn't allow you to delete topics. To be able to delete topics
 
-add the following line at the end of the file:
+    add the following line at the end of the file:
 
-"delete.topic.enable = true"
+    "delete.topic.enable = true"
 
 ### Tell kafka to listen on default port 9092 
 
-remove the commment from "listeners=PLAINTEXT://:9092"
+    remove the commment from "listeners=PLAINTEXT://:9092"
 
 ### Update log directory from temp
 
-Change log.dirs from "/tmp/kafka-logs" to "/kafka/logs"
+    Change log.dirs from "/tmp/kafka-logs" to "/kafka/logs"
 
 
 ### Check zoopkeeper port and url.  
 
-In this case it will be on local host and default zookeeper port
+    In this case it will be on local host and default zookeeper port
 
-zookeeper.connect=localhost:2181
+    zookeeper.connect=localhost:2181
 
   
 
 ### Start Zookeeper(if stopped) and Kafka from any folder
 
-  sudo service zookeeper status
-  
-  sudo service zookeeper status
+    sudo service zookeeper status
 
-  sudo ~/zookeeper-3.4.12/bin/zkServer.sh start
-  
-  sudo ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
+    sudo service zookeeper status
+
+    sudo ~/zookeeper-3.4.12/bin/zkServer.sh start
+
+    sudo ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
 
 
 ### Run Kafka in Background
 
-  "ctrl-z" 
-  
-  bg 
-  
-  verify kafka is still running
-  
-  jobs
+    "ctrl-z"
+
+    bg
+
+    verify kafka is still running
+
+    jobs
   
 ## Test Kafka Instalation by Producing and Consuming Data
 
 
 ### Create topic
 
-~/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 13 --topic KafkaEssentials
+    ~/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 13 --topic KafkaEssentials
 
-kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
+    kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
 
 ### Create a console producer that publishes to topic KafkaEssentials
 
-kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic KafkaEssentials
+    kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic KafkaEssentials
 
-Publish some text to the topic
+    Publish some text to the topic
 
-Hello, World
-My name is Shaun
-Kafka, I loved your book the Metamorphosis
+    Hello, World
+    My name is Shaun
+    Kafka, I loved your book the Metamorphosis
 
 ### Create console consumer
 
-open a new terminal window and ssh into your instance
+    open a new terminal window and ssh into your instance
 
-create a consumer that reads from the begining
+    create a consumer that reads from the begining
 
-~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic KafkaEssentials --from-beginning
+    ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic KafkaEssentials --from-beginning
 
-what is the result?
+    what is the result?
 
-your new consumer should print the previous messages you sent to the broker
+    your new consumer should print the previous messages you sent to the broker
 
 ### Publish some more text to the topic called KafkaEssential
 
-hello, Kafka
-thanks for being so available
+    hello, Kafka
+    thanks for being so available
 
-### now check your consumer and see if the message was recieved by consumer
+    ### now check your consumer and see if the message was recieved by consumer
 
-Congrate you have successfully set up a messaging Queue and Topic
+    Congrate you have successfully set up a messaging Queue and Topic
 
 ## Trouble Shooting
 
-"If you get an error that kafka is running currently you can kill the process."
+    "If you get an error that kafka is running currently you can kill the process."
 
-  ps -fA | grep ./bin/kafka-server-start.sh
-  
-  sudo kill -9 <process-id>
-  
-"Failed to acquire lock on file .lock in /kafka/logs. A Kafka instance in another process or thread is using this directory"
+    ps -fA | grep ./bin/kafka-server-start.sh
 
-  sudo rm /kafka/logs/.lock
+    sudo kill -9 <process-id>
+
+    "Failed to acquire lock on file .lock in /kafka/logs. A Kafka instance in another process or thread is using this directory"
+
+    sudo rm /kafka/logs/.lock
   
   
   
