@@ -9,11 +9,11 @@ In this lab you will deploy a single instance of Kafka and Zookeeper.  This lab 
     sudo apt-get install default-jre
 
   
-## Download and Install zookeeper
+## Download and Install Zookeeper
 
     sudo apt-get install zookeeperd
 
-see if zookeeper is running and stop if so
+See if zookeeper is running and stop
 
     sudo service zookeeper status
 
@@ -21,15 +21,15 @@ see if zookeeper is running and stop if so
 
 ### Update zookeeper configurations
 
-    The zoo.cfg file keeps configuration for ZooKeeper, i.e. on which port the ZooKeeper instance will listen, data directory, etc.
+The zoo.cfg file keeps configuration for ZooKeeper, i.e. on which port the ZooKeeper instance will listen, data directory, etc.
 
     mv zoo_sample.cfg zoo.cfg
 
     nano zoo.cfg
 
-    What is the client port?  The default listen port is 2181. You can change this port by changing clientPort.
+What is the client port?  The default listen port is 2181. You can change this port by changing clientPort.
 
-    What is the default data directory? You will want to change this from temp because you do not want zookeeper to delete data at some point
+What is the default data directory? You will want to change this from temp because you do not want zookeeper to delete data at some point
 
     exit from nano
 
@@ -62,7 +62,7 @@ see if zookeeper is running and stop if so
 
     wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz -O ~/Downloads/kafka.tgz
 
-    Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation.
+Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation.
 
     mkdir -p ~/kafka && cd ~/kafka
 
@@ -77,22 +77,23 @@ see if zookeeper is running and stop if so
 
 ### By default, Kafka doesn't allow you to delete topics. To be able to delete topics
 
-    add the following line at the end of the file:
+add the following line at the end of the file:
 
     "delete.topic.enable = true"
 
 ### Tell kafka to listen on default port 9092 
 
-    remove the commment from "listeners=PLAINTEXT://:9092"
+remove the comment from "listeners=PLAINTEXT://:9092"
 
 ### Update log directory from temp
 
-    Change log.dirs from "/tmp/kafka-logs" to "/kafka/logs"
+
+Change log.dirs from "/tmp/kafka-logs" to "/kafka/logs"
 
 
 ### Check zoopkeeper port and url.  
 
-    In this case it will be on local host and default zookeeper port
+In this case it will be on local host and default zookeeper port
 
     zookeeper.connect=localhost:2181
 
@@ -115,7 +116,7 @@ see if zookeeper is running and stop if so
 
     bg
 
-    verify kafka is still running
+verify kafka is still running
 
     jobs
   
@@ -132,7 +133,7 @@ see if zookeeper is running and stop if so
 
     kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic KafkaEssentials
 
-    Publish some text to the topic
+Publish some text to the topic
 
     Hello, World
     My name is Shaun
@@ -140,24 +141,24 @@ see if zookeeper is running and stop if so
 
 ### Create console consumer
 
-    open a new terminal window and ssh into your instance
+Open a new terminal window and ssh into your instance
 
-    create a consumer that reads from the begining
+Create a consumer that reads from the beginning
 
     ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic KafkaEssentials --from-beginning
 
-    what is the result?
+wWat is the result?
 
-    your new consumer should print the previous messages you sent to the broker
+Your new consumer should print the previous messages you sent to the broker
 
 ### Publish some more text to the topic called KafkaEssential
 
     hello, Kafka
     thanks for being so available
 
-    ### now check your consumer and see if the message was recieved by consumer
+Now check your consumer and see if the message was recieved by consumer
 
-    Congrate you have successfully set up a messaging Queue and Topic
+Congrats! you have successfully set up a messaging Queue and Topic
 
 ## Trouble Shooting
 
