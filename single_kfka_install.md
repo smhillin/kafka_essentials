@@ -1,11 +1,11 @@
 In this lab you will deploy a single instance of Kafka and Zookeeper.  This lab requires at least 4gb of RAM.
 
 ## Download and Install Java
-
+'
   sudo apt update
 
   sudo apt-get install default-jre
-  
+ ' 
   
 ## Download and Install zookeeper
 
