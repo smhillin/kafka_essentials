@@ -2,29 +2,29 @@ In this lab you will deploy a single instance of Kafka and Zookeeper.  This lab 
 
 ## Download and Install Java
 
-'''
-  sudo apt update
 
-  sudo apt-get install default-jre
-'''
+    sudo apt update
+
+    sudo apt-get install default-jre
+
   
 ## Download and Install zookeeper
 
-  sudo apt-get install zookeeperd
-  
-  see if zookeeper is running and stop if so
-  
-  sudo service zookeeper status
-  
-  sudo service zookeeper stop
+    sudo apt-get install zookeeperd
+
+see if zookeeper is running and stop if so
+
+    sudo service zookeeper status
+
+    sudo service zookeeper stop
 
 ### update zookeeper configurations
 
 The zoo.cfg file keeps configuration for ZooKeeper, i.e. on which port the ZooKeeper instance will listen, data directory, etc.
 
-  mv zoo_sample.cfg zoo.cfg
+    mv zoo_sample.cfg zoo.cfg
 
-  nano zoo.cfg
+    nano zoo.cfg
 
 What is the client port?  The default listen port is 2181. You can change this port by changing clientPort.
 
