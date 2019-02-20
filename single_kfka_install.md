@@ -1,5 +1,6 @@
 In this lab you will deploy a single instance of Kafka and Zookeeper.  This lab requires at least 4gb of RAM.
 
+
 ## Download and Install Java
 
 
@@ -18,25 +19,25 @@ see if zookeeper is running and stop if so
 
     sudo service zookeeper stop
 
-### update zookeeper configurations
+### Update zookeeper configurations
 
-The zoo.cfg file keeps configuration for ZooKeeper, i.e. on which port the ZooKeeper instance will listen, data directory, etc.
+    The zoo.cfg file keeps configuration for ZooKeeper, i.e. on which port the ZooKeeper instance will listen, data directory, etc.
 
     mv zoo_sample.cfg zoo.cfg
 
     nano zoo.cfg
 
-What is the client port?  The default listen port is 2181. You can change this port by changing clientPort.
+    What is the client port?  The default listen port is 2181. You can change this port by changing clientPort.
 
-What is the default data directory? You will want to change this from temp because you do not want zookeeper to delete data at some point
+    What is the default data directory? You will want to change this from temp because you do not want zookeeper to delete data at some point
 
-exit from nano 
+    exit from nano
 
-### create a new data directory in zookeeper folder
+### Create a new data directory in zookeeper folder
 
     mkdir data
 
-### change the data directory
+### Change the data directory
 
     cd conf
 
