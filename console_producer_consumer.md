@@ -1,4 +1,4 @@
-# Test Kafka Instalation by Producing and Consuming Data
+# Test Kafka Installation by Producing and Consuming Data
 
 
 ### Start Zookeeper and Kafka
