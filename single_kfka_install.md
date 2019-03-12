@@ -51,7 +51,7 @@ What is the default data directory? You will want to change this from temp becau
 
     cd ../bin
 
-    sudo ./zkServer.sh start
+    sudo service zookeeper start
 
 
 ## Download and Install Kafka
@@ -103,9 +103,7 @@ In this case it will be on local host and default zookeeper port
 
     sudo service zookeeper status
 
-    sudo service zookeeper status
-
-    sudo ~/zookeeper-3.4.12/bin/zkServer.sh start
+    sudo service zookeeper start
 
     sudo ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties
 
