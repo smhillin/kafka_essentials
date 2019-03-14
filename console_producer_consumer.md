@@ -11,7 +11,7 @@
 
 ### Create topic
 
-    ~/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 5 --topic KafkaEssentials
+    ~/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic KafkaEssentials
 
     ~/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
 
@@ -65,7 +65,7 @@ Type some text in your consumer.
 
 Open a new terminal window
 
-    ~/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 5 --topic KafkaEssentials-2
+    ~/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic KafkaEssentials-2
 
 
     ~/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
