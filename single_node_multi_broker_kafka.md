@@ -36,7 +36,7 @@ of brokers to ports
 
     broker.id=1
     listeners=PLAINTEXT://:9092
-    log.dirs=/kafka/logs/log-1
+    log.dirs=logs/events-1
 
 
 ##  Edit config files for 2nd Kafka Broker
@@ -45,7 +45,7 @@ of brokers to ports
     
     broker.id=2
     listeners=PLAINTEXT://:9093
-    log.dirs=/kafka/logs/logs-2
+    log.dirs=logs/events-2
 
 ##  Edit config files for 3rd Kafka Broker
 
@@ -53,7 +53,7 @@ of brokers to ports
     
     broker.id=3
     listeners=PLAINTEXT://:9094
-    log.dirs=/kafka/logs/logs-3
+    log.dirs=logs/events-3
 
 ## Make sure zookeeper has started
 
@@ -139,6 +139,13 @@ Tell KT
     
     
     kafkat topics
+    
+You should see something like this
+    
+Broker		Socket
+2		ip-172-31-95-78.ec2.internal:9093
+3		ip-172-31-95-78.ec2.internal:9094
+1		ip-172-31-95-78.ec2.internal:9092
 
 
 ## Create a new topics with 2 partitions and 2 replicas
@@ -166,19 +173,49 @@ What replicas are each of the partitions on?
  
  What replicas are each of the partitions on?
  
+## Sketch out a drawing of your brokers, partitions, and topics
+
+
+
+## Now go to your events directory and check out the directory structure
+
+
+    tree events-1
+    
+    tree events-2
+    
+    tree events-3
  
+ 
+ Does this follow your results from Kafkat command above?
+ You should see a structure that reflects the number of partitions and 
+ replicas for both of your topics
+
+
 ## Use console producer to write to topic
 
 
 ## Create a new producer and consumer that publishes to new topic
 
 
-    ~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092,localhost:9093,localhost:9094 --topic kafka-multi-broker-2
+    ~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9093  --topic kafka-multi-broker-2
 
 
     ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic kafka-multi-broker-2 --from-beginning
 
+## Perform some writes form your console producer
 
+
+
+## Now go to your events directory and see what it looks like
+
+
+    tree events-1
+    
+    tree events-2
+    
+    tree events-3
+ 
 
 
 

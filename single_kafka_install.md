@@ -27,7 +27,7 @@ Now, ZooKeeper is installed, and it will be started as a daemon automatically
     
 CD into Zookeeper directory and checkout the directory structure
 
-     cd /usr/share/zookeeper
+     cd /var/lib/zookeeper/data
      
      sudo apt install tree
      
@@ -56,7 +56,7 @@ What is the default data directory? You will want to change this from temp becau
 
     sudo nano zoo.cfg
 
-    replace with "dataDir=/zookeeper/data"
+    replace with "dataDir=/var/lib/zookeeper/data"
 
     save and exit nano
 
@@ -95,7 +95,7 @@ Remove the comment from "listeners=PLAINTEXT://:9092"
 ### Update log directory from temp
 
 
-Change log.dirs from "/tmp/kafka-logs" to "/kafka/logs"
+Change log.dirs from "/tmp/kafka-logs" to "logs/events"
 
 
 ### Check zoopkeeper port and url.  
