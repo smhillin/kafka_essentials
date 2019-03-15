@@ -205,7 +205,11 @@ What replicas are each of the partitions on?
 
 ## Perform some writes form your console producer
 
-
+    Hello
+    My name is
+    <your name>
+    todays date 
+    is <todays date>
 
 ## Now go to your events directory and see what it looks like
 
@@ -216,8 +220,17 @@ What replicas are each of the partitions on?
     
     tree events-3
  
+## Open one of the paritions on one of the brokers and perform a dump of the logs
+
+ 
 
 
+## Delete Topics
+
+
+    sudo    ~/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181  --topic kafka-multi-broker-1
+
+    sudo    ~/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181  --topic kafka-multi-broker-2
 
 
     

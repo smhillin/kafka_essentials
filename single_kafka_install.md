@@ -104,6 +104,18 @@ In this case it will be on local host and default zookeeper port
 
     zookeeper.connect=localhost:2181
 
+
+### Increase Kafka JVM
+
+Kafka relies heavily on the filesystem for storing and caching messages. 
+All data is immediately written to a persistent log on the 
+filesystem without necessarily flushing to disk.  Kafka uses page 
+cache memory as a buffer for active writers and readers, so after you specify 
+JVM size (using -Xmx and -Xms Java options), 
+leave the remaining RAM available to the operating system for page caching.
+
+    # Set KAFKA specific environment variables here.
+    export KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -Xms3g -Xmx3g"
   
 
 ### Start Zookeeper(if stopped) and Kafka from any folder
@@ -124,7 +136,10 @@ In this case it will be on local host and default zookeeper port
 ### Check to See if Kafka is Running
 
     netstat -nlpt
-  
+
+
+
+
 
 
 # Trouble Shooting
