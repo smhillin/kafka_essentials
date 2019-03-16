@@ -107,31 +107,6 @@ Save and edit permission
     sudo chmod +x ~/kafka/bin/my-kafka.sh
 
      
-
-## Install kafkaT
-
-KafkaT is a tool that makes it easier to view details about your cluster.
-
-Install Ruby
-
-    sudo apt-get install ruby ruby-dev build-essential
-    
-Install KafkaT Gem
-    
-    sudo gem install kafkat --source https://rubygems.org --no-ri --no-rdoc
-    
-
-Create a .kafkacfg file
-
-sudo nano .kafkatcfg
-
-Tell KT 
-    {
-      "kafka_path": "~/kafka",
-      "log_path": "/kafka/logs",
-      "zk_path": "localhost:2181"
-    }
-    
 ## Check status of your cluster
 
 
@@ -220,7 +195,7 @@ What replicas are each of the partitions on?
     
     tree events-3
  
-## Open one of the paritions on one of the brokers and perform a dump of the logs
+## Open one of the partitions on one of the brokers and perform a dump of the logs
 
  
 

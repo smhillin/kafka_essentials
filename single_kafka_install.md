@@ -2,14 +2,33 @@ In this lab you will deploy a single instance of Kafka and Zookeeper.  This lab 
 
 # Install Zookeeper and Kafka
 
+
+
 ## Download and Install Java
 
 
     sudo apt update
 
-    sudo apt-get install default-jre
+    sudo apt-get install default-jdk
 
-  
+
+## Install jvmtop
+
+this is a handy tool to monitor memory usage on your jvm
+
+    wget https://github.com/patric-r/jvmtop/releases/download/0.8.0/jvmtop-0.8.0.tar.gz
+    
+    tar -xvzf jvmtop-0.8.0.tar.gz
+    
+    sudo chmod +x jvmtop.sh
+
+    export JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64/'
+
+check to see if jvmtop works
+
+    ./jvmtop.sh
+    
+    
 ## Download and Install Zookeeper
 
     sudo apt-get install zookeeperd
@@ -65,13 +84,15 @@ What is the default data directory? You will want to change this from temp becau
 
     cd
 
-    mkdir -p ~/Downloads
+    sudo mkdir -p ~/Downloads
 
-    wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz -O ~/Downloads/kafka.tgz
+    sudo wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz -O ~/Downloads/kafka.tgz
 
-Create a directory called kafka and change to this directory. This will be the base directory of the Kafka installation.
+Create a directory called kafka and change to this directory. 
+This will be the base directory of the Kafka installation and make
+your life a lot easier!
 
-    mkdir -p ~/kafka && cd ~/kafka
+    sudo mkdir -p ~/kafka && cd ~/kafka
 
     sudo tar -xzf ~/Downloads/kafka.tgz --strip 1
 
@@ -115,7 +136,7 @@ JVM size (using -Xmx and -Xms Java options),
 leave the remaining RAM available to the operating system for page caching.
 
     # Set KAFKA specific environment variables here.
-    export KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -Xms3g -Xmx3g"
+    export KAFKA_HEAP_OPTS="$KAFKA_HEAP_OPTS -Xms1g -Xmx1g"
   
 
 ### Start Zookeeper(if stopped) and Kafka from any folder
@@ -133,13 +154,35 @@ leave the remaining RAM available to the operating system for page caching.
 
     bg
 
-### Check to See if Kafka is Running
+### Check to See if Kafka is Running on port 9092
 
     netstat -nlpt
 
+## Install kafkaT
 
+KafkaT is a tool that makes it easier to view details about your cluster.
 
+Install Ruby
 
+    sudo apt-get install ruby ruby-dev build-essential
+    
+Install KafkaT Gem
+    
+    sudo gem install kafkat --source https://rubygems.org --no-ri --no-rdoc
+    
+
+Create a .kafkacfg file
+
+sudo nano .kafkatcfg
+
+Tell KT 
+    {
+      "kafka_path": "~/kafka",
+      "log_path": "/kafka/logs",
+      "zk_path": "localhost:2181"
+    }
+
+kafkat brokers
 
 
 # Trouble Shooting
