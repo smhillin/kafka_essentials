@@ -185,7 +185,7 @@ Add the following lines:
       "zk_path": "localhost:2181"
     }
 
-
+Check to See if Kafkat works and shows your broker
 
 
 # Trouble Shooting
