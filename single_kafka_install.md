@@ -57,9 +57,9 @@ CD into Zookeeper directory and checkout the directory structure
 
 The zoo.cfg file keeps configuration for ZooKeeper, i.e. on which port the ZooKeeper instance will listen, data directory, etc.
 
-    cd /etc/zookeeper/conf    
+    cd /etc/zookeeper    
 
-    sudo nano zoo.cfg
+    sudo nano conf/zoo.cfg
 
 What is the client port?  The default listen port is 2181. You can change this port by changing clientPort.
 
@@ -69,11 +69,12 @@ What is the default data directory? You will want to change this from temp becau
 
 ### Create a new data directory in zookeeper folder
 
-    sudo mkdir data
+
+    sudo mkdir config/data
 
 ### Change the data directory
 
-    sudo nano zoo.cfg
+    sudo nano conf/zoo.cfg
 
     replace with "dataDir=/var/lib/zookeeper/data"
 
@@ -86,7 +87,7 @@ What is the default data directory? You will want to change this from temp becau
 
     sudo mkdir -p ~/Downloads
 
-    sudo wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz -O ~/Downloads/kafka.tgz
+    sudo wget http://ftp.wayne.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz -O ~/Downloads/kafka.tgz
 
 Create a directory called kafka and change to this directory. 
 This will be the base directory of the Kafka installation and make
@@ -170,19 +171,21 @@ Install KafkaT Gem
     
     sudo gem install kafkat --source https://rubygems.org --no-ri --no-rdoc
     
-
+    cd 
+    
 Create a .kafkacfg file
 
-sudo nano .kafkatcfg
+    sudo nano .kafkatcfg
 
-Tell KT 
+Add the following lines:
+
     {
       "kafka_path": "~/kafka",
       "log_path": "/kafka/logs",
       "zk_path": "localhost:2181"
     }
 
-kafkat brokers
+
 
 
 # Trouble Shooting
