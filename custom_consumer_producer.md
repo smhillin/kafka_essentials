@@ -16,7 +16,7 @@ https://github.com/smhillin/kafka_essentials/blob/master/single_kafka_install.md
     
     sudo ./configure
     
-    sudo apt-get install zlib1g-dev
+    sudo apt-get install build-essential libssl-dev libffi-dev python-dev
     
     sudo make
     
@@ -83,7 +83,11 @@ Run both of these consumers.
     
     sudo python3 code/log_producer.py
 
-Watch your consumer process the data as it is written to the topic.
+Watch your consumer process the data as it is written to the topic!
+
+
+
+
     
 # Troubleshooting
 
