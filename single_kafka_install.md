@@ -1,4 +1,5 @@
-In this lab you will deploy a single instance of Kafka and Zookeeper.  This lab requires at least 4gb of RAM.
+In this lab you will deploy a single instance of Kafka and Zookeeper.  
+This lab requires at least 4gb of RAM on an Ubuntu machine.
 
 # Install Zookeeper and Kafka
 

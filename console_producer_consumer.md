@@ -57,9 +57,16 @@ What is the result?
     
 Your consumer should be blank as we did not pass --from-beginning flag to consumer
     
-Type some text in your consumer.
+Type some text in your producer.
 
-    close your consumer
+    kafka, please help me to decouple from all these services
+    
+
+Check your consumer.  What is the result?
+
+Close your consumer
+
+    ctrl-z
     
 ### Create another topic
 
@@ -81,7 +88,10 @@ Open a new terminal window
     
 Now publish to both producers.
 
-Check your new consumer to see what happens
+Check your new consumer to see the behavior of both topics.
+
+
+# THE END
 
 # Trouble Shooting
 
