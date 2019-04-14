@@ -101,6 +101,6 @@ Check your new consumer to see the behavior of both topics.
 
     sudo kill -9 <process-id>
 
-    "Failed to acquire lock on file .lock in /kafka/logs. A Kafka instance in another process or thread is using this directory"
+    "Faile to acquire lock on file .lock in /kafka/logs. A Kafka instance in another process or thread is using this directory"
 
     sudo rm /kafka/logs/.lock
