@@ -71,7 +71,7 @@ What is the default data directory? You will want to change this from temp becau
 ### Create a new data directory in zookeeper folder
 
 
-    sudo mkdir config/data
+    sudo mkdir conf/data
 
 ### Change the data directory
 

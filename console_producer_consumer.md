@@ -84,7 +84,7 @@ Open a new terminal window
 
 ### Create a new consumer that consumers from both topics
 
-    ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --whitelist "KafkaEssentials| KafkaEssentials-2"
+    ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --whitelist "KafkaEssentials|KafkaEssentials-2"
     
 Now publish to both producers.
 
