@@ -47,7 +47,7 @@ Now, ZooKeeper is installed, and it will be started as a daemon automatically
     
 CD into Zookeeper directory and checkout the directory structure
 
-     cd /var/lib/zookeepe
+     cd /var/lib/zookeeper
      
      sudo apt install tree
      
