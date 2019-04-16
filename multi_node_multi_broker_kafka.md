@@ -91,8 +91,8 @@ add last  line to your file
 You should see something like this
     
 Broker		Socket
-2		ip-172-31-95-78.ec2.internal:9093
-3		ip-172-31-95-78.ec2.internal:9094
+2		ip-172-31-95-78.ec2.internal:9092
+3		ip-172-31-95-78.ec2.internal:9092
 
 
 
@@ -124,10 +124,10 @@ What replicas are each of the partitions on?
 ## Create a new producer and consumer that publishes to new topic
 
 
-    ~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9093  --topic kafka-multi-node
+    ~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092  --topic kafka-multi-node
 
 
-    ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic kafka-multi-node --from-beginning
+    ~/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic kafka-multi-node --from-beginning
 
 ## Perform some writes form your console producer
 
@@ -161,4 +161,4 @@ What replicas are each of the partitions on?
     
 Kill process on particulat port
     
-    sudo fuser -k 9094/tcp
+    sudo fuser -k 9092/tcp
