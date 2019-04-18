@@ -118,7 +118,7 @@ Remove the comment from "listeners=PLAINTEXT://:9092"
 ### Update log directory from temp
 
 
-Change log.dirs from "/tmp/kafka-logs" to "logs/events"
+Change log.dirs from "/tmp/kafka-logs" to "log.dirs=/home/ubuntu/kafka/logs/events"
 
 
 ### Check zoopkeeper port and url.  

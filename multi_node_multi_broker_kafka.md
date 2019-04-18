@@ -14,7 +14,7 @@ SSH into your first machine shutdown any running Kafka instances
 
     broker.id=1
     listeners=PLAINTEXT://:9092
-    log.dirs=logs/events-1
+    log.dirs=/home/ubuntu/kafka/logs/events-1
     advertised.listeners=PLAINTEXT://<hostname>:9092
     
     for example(advertised.listeners=PLAINTEXT://54.89.214.237:9092)
@@ -45,7 +45,7 @@ SSH into your first machine shutdown any running Kafka instances
 
     sudo mkdir -p ~/Downloads
 
-    sudo wget http://apache.mirrors.ionfish.org/kafka/2.1.0/kafka_2.11-2.1.0.tgz -O ~/Downloads/kafka.tgz
+    sudo wget http://ftp.wayne.edu/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz -O ~/Downloads/kafka.tgz -O ~/Downloads/kafka.tgz
 
 Create a directory called kafka and change to this directory. 
 This will be the base directory of the Kafka installation and make
@@ -61,7 +61,7 @@ your life a lot easier!
 
     broker.id=4
     listeners=PLAINTEXT://:9092
-    log.dirs=logs/events-4
+    log.dirs=/home/ubuntu/kafka/logs/events-4
     advertised.listeners=PLAINTEXT://18.207.190.9:9092
 
         for example(advertised.listeners=PLAINTEXT://18.207.190.9:9092)
@@ -159,6 +159,6 @@ What replicas are each of the partitions on?
 
     sudo rm /kafka/logs/.lock
     
-Kill process on particulat port
+Kill process on particular port
     
     sudo fuser -k 9092/tcp
